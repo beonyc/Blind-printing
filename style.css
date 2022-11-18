@@ -1,0 +1,51 @@
+*{margin: 0;padding: 0;}
+
+
+
+
+
+
+
+
+#answer{
+width: 700px;
+height: 30px;
+font-size: 20px;
+
+}
+#RandomText{
+    background: #aef;   
+    
+}
+
+.field{
+    text-align: center;
+    margin-top: 10%;
+    /* border: 1px solid black; */
+    
+    
+}
+.ButAns{
+    
+    margin: 0  auto;
+    
+}
+
+
+
+.anwers{   
+    margin: 30px auto;
+    /* border: 1px solid black; */
+    width: max-content;    
+}
+
+button{
+    height: 30px;
+    width: 60px;
+    font-size: 20px;
+    cursor: pointer;
+}
+p{font-size: 30px;}
+#count{text-align: right;}
+
+
