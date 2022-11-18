@@ -4,8 +4,8 @@ const newDiv = document.createElement("div");
 const currentDiv = document.getElementsByClassName("anwers");
 const AnswerLineFocus = document.getElementById('answer');
 
-
-
+// new edit
+// new editss
 
 const randomList = [
     'const array_name = [item1, item2];',
