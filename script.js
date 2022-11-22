@@ -4,8 +4,7 @@ const newDiv = document.createElement("div");
 const currentDiv = document.getElementsByClassName("anwers");
 const AnswerLineFocus = document.getElementById('answer');
 
-// new edit
-// new editss
+
 
 const randomList = [
     'const array_name = [item1, item2];',
@@ -13,7 +12,7 @@ const randomList = [
     'const person = {firstName:"Iurii", lastName:"Surobov", age:22};',
     ]
 
-
+ 
 
 const fullanswerList = [];
 let answList = "";
@@ -99,11 +98,11 @@ function send() {
     if (RandText.split(' ').join('')== answer.split(' ').join('')) {
         answList = RandText + "-----" + answer;
         CountCorrect++;
-        fullanswerList[countAll] = "<p class='correct' >" + answList + "</p>";
+        fullanswerList[countAll] = "<li class='correct' >" + answList + "</li>";
     }
     else {
         answList = RandText + "-----" + answer;
-        fullanswerList[countAll] = "<p class='wrong'>" + answList + "</p>";
+        fullanswerList[countAll] = "<li class='wrong'>" + answList + "</li>";
     }
 
     RandText = randomList[getRandomFunction()];

@@ -1,52 +1,77 @@
 *{margin: 0;padding: 0;}
-
-
-
-
-
-
-
-
-
-#answer{
-width: 700px;
-height: 30px;
-font-size: 20px;
-
+body{
+    background-color: #B8E0D4;
 }
-#RandomText{
-    background: #aef;   
+
+.Timer_div{
+    
+    position:relative;
+    height:12rem ;
     
 }
-
-.field{
+#Timer{
+    font-size: 7em;
+    position:absolute;
+    top:3rem;
+    left: 0;
+    right: 0;
     text-align: center;
-    margin-top: 10%;
-    /* border: 1px solid black; */
-    
     
 }
+
+.RandomText_div{
+    
+    height:4rem ;
+
+}
+
+#RandomText{
+      
+    font-size: 2.5em;
+    text-align: center;
+}
+
 .ButAns{
     
-    margin: 0  auto;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
     
+    
+    
+}
+button#start,button#send{
+    cursor: pointer;
+    background-color: #95B8D1;
+    border: none;
+    height: 2.8rem;
+    width: 7rem;
+    font-size: 23px;
 }
 
 
+#start{
+    border-radius: 50px 0 0 50px;
+}
+#send{
+    border-radius: 0 50px 50px 0;
+
+}
+
+#answer{
+height: 2.8rem;
+width:60rem;
+border: none;
+font-size:2rem;
+
+}
 
 .anwers{   
-    margin: 30px auto;
-    /* border: 1px solid black; */
     width: max-content;    
 }
 
-button{
-    height: 30px;
-    width: 60px;
-    font-size: 20px;
-    cursor: pointer;
-}
-p{font-size: 30px;}
+
+
 #count{text-align: right;}
 
 
