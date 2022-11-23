@@ -1,6 +1,7 @@
 *{margin: 0;padding: 0;}
 header{
     background-color: #B8E0D4;
+    
 }
 
 .Timer_div{
@@ -26,7 +27,7 @@ header{
 }
 
 #RandomText{
-      
+    font-family: Source Sans Pro;
     font-size: 2.5em;
     text-align: center;
 }
@@ -46,7 +47,8 @@ button#start,button#send{
     border: none;
     height: 2.8rem;
     width: 7rem;
-    font-size: 23px;
+    font-size: 25px;
+    font-family: Source Sans Pro;
 }
 
 
@@ -63,27 +65,70 @@ height: 2.8rem;
 width:60rem;
 border: none;
 font-size:2rem;
+font-weight: normal;
+font-family: Source Sans Pro;
 
 }
 .result{
    
     height: 61.666rem;
-    background-color:#D6EADF;}
+    background-color:#D6EADF;
+   position: relative;
 
-.anwers{
-font-size:23px;
-    border-radius: 20px;
-    background-color: #B8E0D4;   
-    width: max-content;    
-    margin: 0 auto;
+
 }
 
-#fullanswerList{text-align: center;}
+.anwers{
+    position: absolute;
+    border-radius: 20px;
+    background-color: #B8E0D4;   
+    width: max-content;
+    
+
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    margin-top: 2rem; 
+}
+
+#fullanswerList{
+    font-family: Source Sans Pro;
+    text-align: center;}
 
 
 #count{
-    
-    text-align: right;}
+    font-size:25px;
+    text-align: right;
+}
 
 
-   
+
+
+
+
+p.correct,p.wrong{font-size: 25px;}
+
+
+    p.correct::before{
+        content: '';
+        width: 14px;
+        display: inline-flex;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #2ECC71;
+        margin-right: 5px;
+        
+        
+    }
+    p.wrong::before{
+        content: '';
+        width: 14px;
+        display: inline-flex;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #FF6361;
+        margin-right: 5px;
+        
+        
+    }

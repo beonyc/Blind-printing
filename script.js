@@ -68,16 +68,15 @@ function startTimer() {
         let countView = CountCorrect + "/" + countAll;
         document.querySelector("#count").innerHTML = countView;
         
-        // fullanswerList.push(".");
+        
         document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
-        changeColor();
+        // changeColor(); // закрашивает всю строку ответ в цвет
         document.querySelector("#RandomText").innerHTML = ""
         document.querySelector('#send').disabled = true;
 
 
     }
 }
-
 
 
 function getRandomFunction() {
@@ -99,11 +98,11 @@ function send() {
     if (RandText.split(' ').join('')== answer.split(' ').join('')) {
         answList = RandText + "   |   " + answer;
         CountCorrect++;
-        fullanswerList[countAll] = "<li class='correct' >" + answList + "</li>";
+        fullanswerList[countAll] = "<p class='correct'>" + answList + "</p>";
     }
     else {
         answList = RandText + "   |   " + answer;
-        fullanswerList[countAll] = "<li class='wrong'>" + answList + "</li>";
+        fullanswerList[countAll] = "<p class='wrong'>" + answList + "</p>";
     }
 
     RandText = randomList[getRandomFunction()];
