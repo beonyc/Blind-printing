@@ -1,5 +1,5 @@
 *{margin: 0;padding: 0;}
-body{
+header{
     background-color: #B8E0D4;
 }
 
@@ -65,13 +65,25 @@ border: none;
 font-size:2rem;
 
 }
+.result{
+   
+    height: 61.666rem;
+    background-color:#D6EADF;}
 
-.anwers{   
+.anwers{
+font-size:23px;
+    border-radius: 20px;
+    background-color: #B8E0D4;   
     width: max-content;    
+    margin: 0 auto;
 }
 
+#fullanswerList{text-align: center;}
 
 
-#count{text-align: right;}
+#count{
+    
+    text-align: right;}
 
 
+   

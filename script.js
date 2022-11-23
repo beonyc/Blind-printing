@@ -1,7 +1,6 @@
 document.querySelector('#send').onclick = send;
 document.querySelector("#start").onclick = start;
 const newDiv = document.createElement("div");
-const currentDiv = document.getElementsByClassName("anwers");
 const AnswerLineFocus = document.getElementById('answer');
 
 
@@ -47,7 +46,7 @@ document.addEventListener('keyup', function (event) {
 
 function startTimer() {
 
-    let secondlimit = 10;//время таймера
+    let secondlimit = 3;//время таймера
     let time = setInterval(function () { myTimer() }, 1000);
     function myTimer() {
 
@@ -68,9 +67,11 @@ function startTimer() {
         //вывод ответов, счётчик правильных ответов
         let countView = CountCorrect + "/" + countAll;
         document.querySelector("#count").innerHTML = countView;
+        
+        // fullanswerList.push(".");
         document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
         changeColor();
-        document.querySelector("#RandomText").innerHTML = "time is up"
+        document.querySelector("#RandomText").innerHTML = ""
         document.querySelector('#send').disabled = true;
 
 
@@ -96,12 +97,12 @@ function send() {
 
 
     if (RandText.split(' ').join('')== answer.split(' ').join('')) {
-        answList = RandText + "-----" + answer;
+        answList = RandText + "   |   " + answer;
         CountCorrect++;
         fullanswerList[countAll] = "<li class='correct' >" + answList + "</li>";
     }
     else {
-        answList = RandText + "-----" + answer;
+        answList = RandText + "   |   " + answer;
         fullanswerList[countAll] = "<li class='wrong'>" + answList + "</li>";
     }
 
@@ -110,6 +111,10 @@ function send() {
     document.querySelector('#answer').value = "";
     countAll++;
 }
+
+
+
+
 //получение цвета ответов
 function changeColor() {
     let changeColorWrong = document.querySelectorAll('.wrong');
