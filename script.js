@@ -19,7 +19,7 @@ let CountCorrect = 0;
 let countAll = 0;
 let pressStartCount = 0;
 let tryAnwersCount = 1;
-
+let sendCount = 0;
 
 function start() {
     AnswerLineFocus.focus();
@@ -30,9 +30,6 @@ function start() {
     // document.querySelector("#count").innerHTML = "";
     // document.querySelector("#fullanswerList").innerHTML = "";
     document.querySelector('#send').disabled = false; //при повтороном нажатии "start", разблокировать "send"
-
-
-
     pressStartCount++;
 }
 
@@ -41,13 +38,12 @@ document.addEventListener('keyup', function (event) {
     {
         send();
     }
-
 });
 
 
 function startTimer() {
 
-    let secondlimit = 1;//время таймера
+    let secondlimit = 2;//время таймера
     let time = setInterval(function () { myTimer() }, 1000);
     function myTimer() {
 
@@ -64,42 +60,56 @@ function startTimer() {
     }
     function myStopFunction() {
         clearInterval(time);
-        document.querySelector("#RandomText").innerHTML = ""
+        document.querySelector("#RandomText").innerHTML = "";
+
         document.querySelector('#send').disabled = true;
 
 
-        if (tryAnwersCount > 1) {
+        if (sendCount == 0) //если таймер прошёл, но ничегоне ввели
+        {
+            tryAnwersCount--;
+            alert("Попробуйте еще раз");
+        }
+        else {
+            if (tryAnwersCount > 1) {
 
-            createNewElement();
+                createNewElement();
 
-        } else {
+            } else {
 
-            document.getElementById("tryCount").innerHTML = `Попытка #${tryAnwersCount}`;
-            let countView = CountCorrect + "/" + countAll;
-            document.querySelector("#count").innerHTML = countView;
-            document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
+                document.getElementById("tryCount").innerHTML = `Попытка #${tryAnwersCount}`;
+                let countView = CountCorrect + "/" + countAll;
+                document.querySelector("#count").innerHTML = countView;
+                document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
 
-            
+
+            }
         }
         fullanswerList.length = 0;
         CountCorrect = 0;
         countAll = 0;
         tryAnwersCount++;
         //changeColor(); 
-        
-       
     }
 }
 
 
 function createNewElement() {
-    let divToCopy = document.querySelector('.anwers');
-    let newAnswer = divToCopy.cloneNode(true);
-    let countView = CountCorrect + "/" + countAll;
-    document.querySelector("#count").innerHTML = countView;
-    document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
-    document.getElementById("tryCount").innerHTML = `Попытка #${tryAnwersCount}`;
-    divToCopy.after(newAnswer);
+
+    if (fullanswerList.length == 0) //если это не первая попытка и закончился таймер
+    {
+        tryAnwersCount--;
+        alert("Попробуйте еще раз");
+    }
+    else {
+        let divToCopy = document.querySelector('.anwers');
+        let newAnswer = divToCopy.cloneNode(true);
+        let countView = CountCorrect + "/" + countAll;
+        document.querySelector("#count").innerHTML = countView;
+        document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
+        document.getElementById("tryCount").innerHTML = `Попытка #${tryAnwersCount}`;
+        divToCopy.after(newAnswer);
+    }
     return;
 }
 
@@ -115,6 +125,7 @@ function send() {
     if (pressStartCount == 0) {
         return alert('Please, press "start" button');;
     }
+    sendCount++;
     AnswerLineFocus.focus();
 
     let RandText = document.querySelector("#RandomText").innerHTML.replace(/^ /, "");
