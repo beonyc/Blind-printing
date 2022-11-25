@@ -1,29 +1,24 @@
 *{margin: 0;padding: 0;}
 header{
-    background-color: #B8E0D4;
-    
+    background-color: #B8E0D4;   
 }
 
-.Timer_div{
-    
+.Timer_div{ 
     position:relative;
-    height:12rem ;
-    
+    height:12rem;
 }
 #Timer{
+
     font-size: 7em;
     position:absolute;
     top:3rem;
     left: 0;
     right: 0;
-    text-align: center;
-    
+    text-align: center;  
 }
 
-.RandomText_div{
-    
+.RandomText_div{ 
     height:4rem ;
-
 }
 
 #RandomText{
@@ -32,15 +27,12 @@ header{
     text-align: center;
 }
 
-.ButAns{
-    
+.ButAns{ 
     height: 4rem;
     display: flex;
-    justify-content: center;
-    
-    
-    
+    justify-content: center;      
 }
+
 button#start,button#send{
     cursor: pointer;
     background-color: #95B8D1;
@@ -51,13 +43,11 @@ button#start,button#send{
     font-family: Source Sans Pro;
 }
 
-
 #start{
     border-radius: 50px 0 0 50px;
 }
 #send{
     border-radius: 0 50px 50px 0;
-
 }
 
 #answer{
@@ -67,75 +57,44 @@ border: none;
 font-size:2rem;
 font-weight: normal;
 font-family: Source Sans Pro;
-
 }
-.result{
-   
-    height: 61.666rem;
-    background-color:#D6EADF;
-   
 
-
+body{
+    background-color:#D6EADF; 
 }
 
 .anwers{
-    /* position: absolute;
     border-radius: 20px;
     background-color: #B8E0D4;   
     width: max-content;
-    
-
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    margin-top: 2rem;  */
-    border-radius: 20px;
-    background-color: #B8E0D4;   
-    width: max-content;
-    margin: 0 auto;
-   
-    /* margin-top: 30px;
-    padding: 15px; */
-    
-   
-    
+    height: max-content;
+    margin: 25px auto;
+    padding: 10px;  
 }
 
 #fullanswerList{
     font-family: Source Sans Pro;
-    text-align: center;}
-
-
-/* #count{
-    
-    text-align: right;
-} */
+    text-align: center;
+}
 
 .upRow{
     font-size:25px;
     display: flex;
     justify-content: space-between;
-    
 }
-
-
-
 
 p.correct,p.wrong{font-size: 25px;}
 
-
-    p.correct::before{
+  p.correct::before{
         content: '';
         width: 14px;
         display: inline-flex;
         height: 14px;
         border-radius: 50%;
         background-color: #2ECC71;
-        margin-right: 5px;
-        
-        
+        margin-right: 5px;      
     }
+
     p.wrong::before{
         content: '';
         width: 14px;
@@ -143,7 +102,5 @@ p.correct,p.wrong{font-size: 25px;}
         height: 14px;
         border-radius: 50%;
         background-color: #FF6361;
-        margin-right: 5px;
-        
-        
+        margin-right: 5px;   
     }
