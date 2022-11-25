@@ -73,13 +73,13 @@ font-family: Source Sans Pro;
    
     height: 61.666rem;
     background-color:#D6EADF;
-   position: relative;
+   position: relative;;
 
 
 }
 
 .anwers{
-    position: absolute;
+    /* position: absolute;
     border-radius: 20px;
     background-color: #B8E0D4;   
     width: max-content;
@@ -89,7 +89,17 @@ font-family: Source Sans Pro;
     margin-right: auto;
     left: 0;
     right: 0;
-    margin-top: 2rem; 
+    margin-top: 2rem;  */
+    border-radius: 20px;
+    background-color: #B8E0D4;   
+    width: max-content;
+    margin: 0 auto;
+   
+    /* margin-top: 30px;
+    padding: 15px; */
+    
+   
+    
 }
 
 #fullanswerList{
@@ -97,12 +107,17 @@ font-family: Source Sans Pro;
     text-align: center;}
 
 
-#count{
-    font-size:25px;
+/* #count{
+    
     text-align: right;
+} */
+
+.upRow{
+    font-size:25px;
+    display: flex;
+    justify-content: space-between;
+    
 }
-
-
 
 
 

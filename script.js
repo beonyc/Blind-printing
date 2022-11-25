@@ -9,15 +9,16 @@ const randomList = [
     'const array_name = [item1, item2];',
     'const array_name = ["item1", "item2"];',
     'const person = {firstName:"Iurii", lastName:"Surobov", age:22};',
-    ]
+]
 
- 
+
 
 const fullanswerList = [];
 let answList = "";
 let CountCorrect = 0;
 let countAll = 0;
 let pressStartCount = 0;
+let tryAnwersCount = 1;
 
 
 function start() {
@@ -26,8 +27,8 @@ function start() {
     document.querySelector("#RandomText").innerHTML = FirstRandText;
     startTimer();
 
-    document.querySelector("#count").innerHTML = "";
-    document.querySelector("#fullanswerList").innerHTML = "";
+    // document.querySelector("#count").innerHTML = "";
+    // document.querySelector("#fullanswerList").innerHTML = "";
     document.querySelector('#send').disabled = false; //при повтороном нажатии "start", разблокировать "send"
 
 
@@ -46,7 +47,7 @@ document.addEventListener('keyup', function (event) {
 
 function startTimer() {
 
-    let secondlimit = 3;//время таймера
+    let secondlimit = 1;//время таймера
     let time = setInterval(function () { myTimer() }, 1000);
     function myTimer() {
 
@@ -63,20 +64,45 @@ function startTimer() {
     }
     function myStopFunction() {
         clearInterval(time);
-
-        //вывод ответов, счётчик правильных ответов
-        let countView = CountCorrect + "/" + countAll;
-        document.querySelector("#count").innerHTML = countView;
-        
-        
-        document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
-        // changeColor(); // закрашивает всю строку ответ в цвет
         document.querySelector("#RandomText").innerHTML = ""
         document.querySelector('#send').disabled = true;
 
 
+        if (tryAnwersCount > 1) {
+
+            createNewElement();
+
+        } else {
+
+            document.getElementById("tryCount").innerHTML = `Попытка #${tryAnwersCount}`;
+            let countView = CountCorrect + "/" + countAll;
+            document.querySelector("#count").innerHTML = countView;
+            document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
+
+            
+        }
+        fullanswerList.length = 0;
+        CountCorrect = 0;
+        countAll = 0;
+        tryAnwersCount++;
+        //changeColor(); 
+        
+       
     }
 }
+
+
+function createNewElement() {
+    let divToCopy = document.querySelector('.anwers');
+    let newAnswer = divToCopy.cloneNode(true);
+    let countView = CountCorrect + "/" + countAll;
+    document.querySelector("#count").innerHTML = countView;
+    document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
+    document.getElementById("tryCount").innerHTML = `Попытка #${tryAnwersCount}`;
+    divToCopy.after(newAnswer);
+    return;
+}
+
 
 
 function getRandomFunction() {
@@ -91,11 +117,11 @@ function send() {
     }
     AnswerLineFocus.focus();
 
-    let RandText = document.querySelector("#RandomText").innerHTML.replace(/^ /,"");
-    let answer = document.querySelector('#answer').value.replace(/^ /,"") ;
+    let RandText = document.querySelector("#RandomText").innerHTML.replace(/^ /, "");
+    let answer = document.querySelector('#answer').value.replace(/^ /, "");
 
 
-    if (RandText.split(' ').join('')== answer.split(' ').join('')) {
+    if (RandText.split(' ').join('') == answer.split(' ').join('')) {
         answList = RandText + "   |   " + answer;
         CountCorrect++;
         fullanswerList[countAll] = "<p class='correct'>" + answList + "</p>";
@@ -131,28 +157,6 @@ function changeColor() {
 
 
 
-
-
-// function changestyle(resultDiv, CountCorrect) {
-
-//     if (resultDiv == 1) {
-//         return document.querySelector("#count").style.background = 'rgba(0,255,0,0.3)';
-
-//     } else {
-//         if (1 < resultDiv && resultDiv <= 1.3) {
-//             return document.querySelector("#count").style.background = 'rgba(255,255,0,0.3)';
-//         }
-//         else {
-//             if (1.3 < resultDiv && resultDiv <= 1.7) {
-//                 return document.querySelector("#count").style.background = 'rgba(255,165,0,0.3)';
-//             } else {
-//                 if (resultDiv > 1.7 || CountCorrect == 0)
-//                     return document.querySelector("#count").style.background = 'rgba(255,0,0,0.3)';
-//             }
-//         }
-//     }
-
-// }
 
 
 
