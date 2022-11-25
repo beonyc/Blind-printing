@@ -2,7 +2,7 @@ document.querySelector('#send').onclick = send;
 document.querySelector("#start").onclick = start;
 const newDiv = document.createElement("div");
 const AnswerLineFocus = document.getElementById('answer');
-
+let anwersCss = document.querySelector(".anwers");
 
 
 const randomList = [
@@ -21,11 +21,11 @@ let pressStartCount = 0;
 let tryAnwersCount = 1;
 let sendCount = 0;
 
-function start() {
+ function start() {
     AnswerLineFocus.focus();
     let FirstRandText = randomList[getRandomFunction()];
     document.querySelector("#RandomText").innerHTML = FirstRandText;
-    startTimer();
+     startTimer();
 
     // document.querySelector("#count").innerHTML = "";
     // document.querySelector("#fullanswerList").innerHTML = "";
@@ -74,6 +74,7 @@ function startTimer() {
             if (tryAnwersCount > 1) {
 
                 createNewElement();
+                anwersCss.style.padding="15px";
 
             } else {
 
@@ -81,7 +82,7 @@ function startTimer() {
                 let countView = CountCorrect + "/" + countAll;
                 document.querySelector("#count").innerHTML = countView;
                 document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
-
+                 anwersCss.style.padding="15px";
 
             }
         }
@@ -90,6 +91,9 @@ function startTimer() {
         countAll = 0;
         tryAnwersCount++;
         //changeColor(); 
+
+
+      
     }
 }
 

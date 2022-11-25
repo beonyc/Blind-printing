@@ -1,6 +1,7 @@
 *{margin: 0;padding: 0;}
 header{
-    background-color: #B8E0D4;   
+    background-color: #B8E0D4; 
+    
 }
 
 .Timer_div{ 
@@ -61,6 +62,7 @@ font-family: Source Sans Pro;
 
 body{
     background-color:#D6EADF; 
+    
 }
 
 .anwers{
@@ -69,7 +71,6 @@ body{
     width: max-content;
     height: max-content;
     margin: 25px auto;
-    padding: 10px;  
 }
 
 #fullanswerList{
