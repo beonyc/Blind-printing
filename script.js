@@ -9,6 +9,10 @@ const randomList = [
     'const array_name = [item1, item2];',
     'const array_name = ["item1", "item2"];',
     'const person = {firstName:"Iurii", lastName:"Surobov", age:22};',
+
+
+
+
 ]
 
 
@@ -41,23 +45,41 @@ document.addEventListener('keyup', function (event) {
 });
 
 
-function startTimer() {
 
-    let secondlimit = 2;//время таймера
+let newSeconds = 0;
+let minutes = 0;
+function timeRefresh(secondlimit) {
+    minutes = Math.floor(secondlimit / 60);
+    newSeconds = secondlimit % 60;
+
+    if (minutes < 10){
+        
+        if(newSeconds>=10) 
+             return`0${minutes}:${newSeconds}`;  
+            return`0${minutes}:0${newSeconds}`;
+           
+    }
+    else{
+        if(newSeconds>=10) 
+        return `${minutes}:${newSeconds}`;
+        return `${minutes}:0${newSeconds}`;
+    }
+
+}
+
+
+function startTimer() {
+    let secondlimit = 60;
     let time = setInterval(function () { myTimer() }, 1000);
     function myTimer() {
 
         if (secondlimit == 0) {
             myStopFunction();
         }
-        document.getElementById("Timer").innerHTML = '00:' + zeroInfront(secondlimit);
+        document.getElementById("Timer").innerHTML = timeRefresh(secondlimit);
         secondlimit -= 1;
     }
-    function zeroInfront(num) {
-
-        if (num < 10) { return "0" + num; }
-        return num;
-    }
+  
     function myStopFunction() {
         clearInterval(time);
         document.querySelector("#RandomText").innerHTML = "";
