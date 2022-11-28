@@ -1,6 +1,5 @@
 document.querySelector('#send').onclick = send;
 document.querySelector("#start").onclick = start;
-const newDiv = document.createElement("div");
 const AnswerLineFocus = document.getElementById('answer');
 let anwersCss = document.querySelector(".anwers");
 
@@ -9,12 +8,45 @@ const randomList = [
     'const array_name = [item1, item2];',
     'const array_name = ["item1", "item2"];',
     'const person = {firstName:"Iurii", lastName:"Surobov", age:22};',
-
-
-
-
+    'var square = function(number) { return number * number; }',
+    'for (i = 0; i != a.length; i++){}',
+    'var numbers = [0, 1, 2, 5, 10];',
+    'function square(n) { return n * n; } ',
+    'while(x<10){x++}',
+    'try {} catch (err){}',
+    '"use strict"',
+    'alert("some code")',
+    'let user = "John"',
+    'let str = "Привет" ',
+    'alert(typeof value);',
+    'let result = 5 > 4; ',
+    'if (hour < 10 || hour > 18)',
+    'alert( true && false ); ',
+    'let area = (height ?? 100) * (width ?? 50);',
+    'for (let i = 0; i < 3; i++) {}',
+    'break label; ',
+    'function showMessage() {}',
+    'export function sayHi(user) {}',
+    'import {sayHi, sayBye} from "./say.js";',
+    'import * as say from "./say.js"; ',
+    'export default class User {} ',
+    'let elem = document.getElementById("elem"); ',
+    'let divs = document.getElementsByTagName("div");',
+    'var item = JSON.stringify(someObject);',
+    'var expire = new Date();',
+    'document.cookie = "login=tom32;";',
+    '<button onclick="openWindow()">Click</button>',
+    'setTimeout(() => alert("Привет"), 1000);',
+    'parseInt("100px")',
+    'let rand = Math.floor(Math.random() * randomList.length);',
+    'document.addEventListener("keyup", function(){});',
+    'let time = setInterval( ()=>{ myTimer() }, 1000);',
+    'if (array.length == 0){}',
+    'justify-content: space-between;',
+    '<link rel="stylesheet" href="style.css">',
+    '<script src="script.js"></script>',
+    '<img src="name.jpg" alt="explanation">'
 ]
-
 
 
 const fullanswerList = [];
@@ -30,9 +62,6 @@ let sendCount = 0;
     let FirstRandText = randomList[getRandomFunction()];
     document.querySelector("#RandomText").innerHTML = FirstRandText;
      startTimer();
-
-    // document.querySelector("#count").innerHTML = "";
-    // document.querySelector("#fullanswerList").innerHTML = "";
     document.querySelector('#send').disabled = false; //при повтороном нажатии "start", разблокировать "send"
     pressStartCount++;
 }
@@ -45,7 +74,6 @@ document.addEventListener('keyup', function (event) {
 });
 
 
-
 let newSeconds = 0;
 let minutes = 0;
 function timeRefresh(secondlimit) {
@@ -55,7 +83,7 @@ function timeRefresh(secondlimit) {
     if (minutes < 10){
         
         if(newSeconds>=10) 
-             return`0${minutes}:${newSeconds}`;  
+            return`0${minutes}:${newSeconds}`;  
             return`0${minutes}:0${newSeconds}`;
            
     }
@@ -68,9 +96,10 @@ function timeRefresh(secondlimit) {
 }
 
 
+
 function startTimer() {
-    let secondlimit = 60;
-    let time = setInterval(function () { myTimer() }, 1000);
+    let secondlimit = 60;//время таймера 
+    let time = setInterval( ()=>{ myTimer() }, 1000);
     function myTimer() {
 
         if (secondlimit == 0) {
@@ -104,7 +133,7 @@ function startTimer() {
                 let countView = CountCorrect + "/" + countAll;
                 document.querySelector("#count").innerHTML = countView;
                 document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
-                 anwersCss.style.padding="15px";
+                anwersCss.style.padding="15px";
 
             }
         }
