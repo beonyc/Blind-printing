@@ -5,49 +5,46 @@ let anwersCss = document.querySelector(".anwers");
 
 
 const randomList = [
-    'const array_name = [item1, item2];',
-    'const array_name = ["item1", "item2"];',
-    'const person = {firstName:"Iurii", lastName:"Surobov", age:22};',
-    'var square = function(number) { return number * number; }',
-    'for (i = 0; i != a.length; i++){}',
-    'var numbers = [0, 1, 2, 5, 10];',
-    'function square(n) { return n * n; } ',
-    'while(x<10){x++}',
-    'try {} catch (err){}',
-    '"use strict"',
-    'alert("some code")',
-    'let user = "John"',
-    'let str = "Привет" ',
-    'alert(typeof value);',
-    'let result = 5 > 4; ',
-    'if (hour < 10 || hour > 18)',
-    'alert( true && false ); ',
-    'let area = (height ?? 100) * (width ?? 50);',
-    'for (let i = 0; i < 3; i++) {}',
-    'break label; ',
-    'function showMessage() {}',
-    'export function sayHi(user) {}',
-    'import {sayHi, sayBye} from "./say.js";',
-    'import * as say from "./say.js"; ',
-    'export default class User {} ',
-    'let elem = document.getElementById("elem"); ',
-    'let divs = document.getElementsByTagName("div");',
-    'var item = JSON.stringify(someObject);',
-    'var expire = new Date();',
-    'document.cookie = "login=tom32;";',
-    '<button onclick="openWindow()">Click</button>',
-    'setTimeout(() => alert("Привет"), 1000);',
-    'parseInt("100px")',
-    'let rand = Math.floor(Math.random() * randomList.length);',
-    'document.addEventListener("keyup", function(){});',
-    'let time = setInterval( ()=>{ myTimer() }, 1000);',
-    'if (array.length == 0){}',
-    'justify-content: space-between;',
-    '<link rel="stylesheet" href="style.css">',
-    '<script src="script.js"></script>',
-    '<img src="name.jpg" alt="explanation">'
+    "const array_name = [item1, item2];",
+    "const array_name = ['item1', 'item2'];",
+    "const person = {firstName:'Iurii', lastName:'Surobov', age:22};",
+    "var square = function(number) { return number * number; }",
+    "for (i = 0; i != a.length; i++){}",
+    "var numbers = [0, 1, 2, 5, 10];",
+    "function square(n) { return n * n; }" ,
+    "while(x<10){x++}",
+    "try {} catch (err){}",
+    "use strict",
+    "alert('some code')",
+    "let user = 'John'",
+    "let str = 'Привет'",
+    "alert(typeof value);",
+    " let result = 5 > 4;",
+    "if (hour < 10 || hour > 18)",
+    "alert( true && false );",
+    "let area = (height ?? 100) * (width ?? 50);",
+    "for (let i = 0; i < 3; i++) {}",
+    "break label;",
+    "function showMessage() {}",
+    "export function sayHi(user) {}",
+    "import {sayHi, sayBye} from './say.js';",
+    "import * as say from './say.js';",
+    "export default class User {}",
+    "let elem = document.getElementById('elem');",
+    "let divs = document.getElementsByTagName('div');",
+    "var item = JSON.stringify(someObject);",
+    "var expire = new Date();",
+    "document.cookie = 'login=tom32;';",
+    "setTimeout(() => alert('Привет'), 1000);",
+    "let rand = Math.floor(Math.random() * randomList.length);",
+    "document.addEventListener('keyup', function(){});",
+    "let time = setInterval( ()=>{ myTimer() }, 1000);",
+    " if (array.length == 0){}",
+    "justify-content: space-between;"
+    
+    
 ]
-
+// const randomList = ["document.cookie = 'login=tom32;';"]
 
 const fullanswerList = [];
 let answList = "";
@@ -57,11 +54,11 @@ let pressStartCount = 0;
 let tryAnwersCount = 1;
 let sendCount = 0;
 
- function start() {
+function start() {
     AnswerLineFocus.focus();
     let FirstRandText = randomList[getRandomFunction()];
-    document.querySelector("#RandomText").innerHTML = FirstRandText;
-     startTimer();
+    document.querySelector("#RandomText").textContent = FirstRandText;
+    startTimer();
     document.querySelector('#send').disabled = false; //при повтороном нажатии "start", разблокировать "send"
     pressStartCount++;
 }
@@ -80,16 +77,16 @@ function timeRefresh(secondlimit) {
     minutes = Math.floor(secondlimit / 60);
     newSeconds = secondlimit % 60;
 
-    if (minutes < 10){
-        
-        if(newSeconds>=10) 
-            return`0${minutes}:${newSeconds}`;  
-            return`0${minutes}:0${newSeconds}`;
-           
+    if (minutes < 10) {
+
+        if (newSeconds >= 10)
+            return `0${minutes}:${newSeconds}`;
+        return `0${minutes}:0${newSeconds}`;
+
     }
-    else{
-        if(newSeconds>=10) 
-        return `${minutes}:${newSeconds}`;
+    else {
+        if (newSeconds >= 10)
+            return `${minutes}:${newSeconds}`;
         return `${minutes}:0${newSeconds}`;
     }
 
@@ -98,8 +95,8 @@ function timeRefresh(secondlimit) {
 
 
 function startTimer() {
-    let secondlimit = 60;//время таймера 
-    let time = setInterval( ()=>{ myTimer() }, 1000);
+    let secondlimit = 20;//время таймера 
+    let time = setInterval(() => { myTimer() }, 1000);
     function myTimer() {
 
         if (secondlimit == 0) {
@@ -108,10 +105,10 @@ function startTimer() {
         document.getElementById("Timer").innerHTML = timeRefresh(secondlimit);
         secondlimit -= 1;
     }
-  
+
     function myStopFunction() {
         clearInterval(time);
-        document.querySelector("#RandomText").innerHTML = "";
+        document.querySelector("#RandomText").textContent = "";
 
         document.querySelector('#send').disabled = true;
 
@@ -125,7 +122,7 @@ function startTimer() {
             if (tryAnwersCount > 1) {
 
                 createNewElement();
-                anwersCss.style.padding="15px";
+                anwersCss.style.padding = "15px";
 
             } else {
 
@@ -133,7 +130,7 @@ function startTimer() {
                 let countView = CountCorrect + "/" + countAll;
                 document.querySelector("#count").innerHTML = countView;
                 document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
-                anwersCss.style.padding="15px";
+                anwersCss.style.padding = "15px";
 
             }
         }
@@ -144,7 +141,7 @@ function startTimer() {
         //changeColor(); 
 
 
-      
+
     }
 }
 
@@ -183,7 +180,7 @@ function send() {
     sendCount++;
     AnswerLineFocus.focus();
 
-    let RandText = document.querySelector("#RandomText").innerHTML.replace(/^ /, "");
+    let RandText = document.querySelector("#RandomText").textContent.replace(/^ /, "");
     let answer = document.querySelector('#answer').value.replace(/^ /, "");
 
 
@@ -198,7 +195,7 @@ function send() {
     }
 
     RandText = randomList[getRandomFunction()];
-    document.querySelector("#RandomText").innerHTML = RandText;
+    document.querySelector("#RandomText").textContent = RandText;
     document.querySelector('#answer').value = "";
     countAll++;
 }
