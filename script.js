@@ -95,7 +95,7 @@ function timeRefresh(secondlimit) {
 
 
 function startTimer() {
-    let secondlimit = 20;//время таймера 
+    let secondlimit = 60;//время таймера 
     let time = setInterval(() => { myTimer() }, 1000);
     function myTimer() {
 
