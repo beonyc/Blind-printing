@@ -4,17 +4,68 @@ header{
     
 }
 
+.settings{
+    background-color: #D6EADF;
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+  margin: 0 auto;
+  padding: 5px;
+  height: 2rem;
+  font-size: 25px;
+  align-items: center;
+  border-radius: 0 0 25px 25px;
+}
+.settings input, .settings select{
+    width: 80px;
+    border-radius: 5px;
+    border: none;
+    height: 1.5rem;
+    padding: 0 5px;
+    font-size: 20px;
+}
+.settings option{ 
+    font-size: 17px; 
+}
+
+.settings button{
+    width: 80px;
+height: 2rem;
+border-radius: 15px ;
+border: none;
+cursor: pointer;
+
+font-size: 25px;
+    font-family: Source Sans Pro;
+    background-color: #95B8D1;
+}
+
+
+
+
+
 .Timer_div{ 
     position:relative;
     height:12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.fotka{
+    content: url(images/invoker.png);
+    width: 32rem;
+    height:12rem;
+    position: absolute;
+    text-align: center; 
+    object-fit: scale-down;
+    
 }
 #Timer{
-
+   
     font-size: 7em;
-    position:absolute;
-    top:3rem;
-    left: 0;
-    right: 0;
+    position: absolute;
     text-align: center;  
 }
 
@@ -55,6 +106,7 @@ button#start,button#send{
 height: 2.8rem;
 width:60rem;
 border: none;
+padding: 0 10px;
 font-size:2rem;
 font-weight: normal;
 font-family: Source Sans Pro;

@@ -1,17 +1,23 @@
 document.querySelector('#send').onclick = send;
 document.querySelector("#start").onclick = start;
+// document.getElementById("stopTimer").onclick = ()=>startTimer(false);
 const AnswerLineFocus = document.getElementById('answer');
 let anwersCss = document.querySelector(".anwers");
 
+const listPython = [
+    'some python text1',
+    'some python text2'
+]
 
-const randomList = [
+
+const listJS = [
     "const array_name = [item1, item2];",
     "const array_name = ['item1', 'item2'];",
     "const person = {firstName:'Iurii', lastName:'Surobov', age:22};",
     "var square = function(number) { return number * number; }",
     "for (i = 0; i != a.length; i++){}",
     "var numbers = [0, 1, 2, 5, 10];",
-    "function square(n) { return n * n; }" ,
+    "function square(n) { return n * n; }",
     "while(x<10){x++}",
     "try {} catch (err){}",
     "use strict",
@@ -41,8 +47,8 @@ const randomList = [
     "let time = setInterval( ()=>{ myTimer() }, 1000);",
     " if (array.length == 0){}",
     "justify-content: space-between;"
-    
-    
+
+
 ]
 // const randomList = ["document.cookie = 'login=tom32;';"]
 
@@ -53,10 +59,20 @@ let countAll = 0;
 let pressStartCount = 0;
 let tryAnwersCount = 1;
 let sendCount = 0;
+var selectedLanguage = [];
+var currentlanguage = '';
+
 
 function start() {
+    var language = document.querySelector(`#language`).value;
+
+
+    if (language == 'JS') { selectedLanguage = listJS; currentlanguage = 'JS' }
+    else { selectedLanguage = listPython; currentlanguage = 'Python'; }
+
+    document.getElementById('Timer').classList.remove('fotka');
     AnswerLineFocus.focus();
-    let FirstRandText = randomList[getRandomFunction()];
+    let FirstRandText = selectedLanguage[getRandomFunction()];
     document.querySelector("#RandomText").textContent = FirstRandText;
     startTimer();
     document.querySelector('#send').disabled = false; //при повтороном нажатии "start", разблокировать "send"
@@ -95,7 +111,9 @@ function timeRefresh(secondlimit) {
 
 
 function startTimer() {
-    let secondlimit = 60;//время таймера 
+
+    let secondlimit = document.getElementById('changeTime').value;
+    document.getElementById("stopTimer").onclick = myStopFunction;
     let time = setInterval(() => { myTimer() }, 1000);
     function myTimer() {
 
@@ -107,9 +125,12 @@ function startTimer() {
     }
 
     function myStopFunction() {
+        console.log(tryAnwersCount);
         clearInterval(time);
         document.querySelector("#RandomText").textContent = "";
 
+
+        document.getElementById('Timer').classList.add('fotka');//
         document.querySelector('#send').disabled = true;
 
 
@@ -126,7 +147,8 @@ function startTimer() {
 
             } else {
 
-                document.getElementById("tryCount").innerHTML = `Попытка #${tryAnwersCount}`;
+                document.getElementById("tryCount").textContent = `Попытка #${tryAnwersCount} `;
+                document.getElementById("currentlanguage").innerHTML = ` ${currentlanguage} `;
                 let countView = CountCorrect + "/" + countAll;
                 document.querySelector("#count").innerHTML = countView;
                 document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
@@ -159,7 +181,8 @@ function createNewElement() {
         let countView = CountCorrect + "/" + countAll;
         document.querySelector("#count").innerHTML = countView;
         document.querySelector("#fullanswerList").innerHTML = fullanswerList.join("");
-        document.getElementById("tryCount").innerHTML = `Попытка #${tryAnwersCount}`;
+        document.getElementById("tryCount").textContent = `Попытка #${tryAnwersCount} `;
+        document.getElementById("currentlanguage").innerHTML = ` ${currentlanguage} `;
         divToCopy.after(newAnswer);
     }
     return;
@@ -168,7 +191,7 @@ function createNewElement() {
 
 
 function getRandomFunction() {
-    let rand = Math.floor(Math.random() * randomList.length);
+    let rand = Math.floor(Math.random() * selectedLanguage.length);
     return rand;
 }
 
@@ -194,7 +217,7 @@ function send() {
         fullanswerList[countAll] = "<p class='wrong'>" + answList + "</p>";
     }
 
-    RandText = randomList[getRandomFunction()];
+    RandText = selectedLanguage[getRandomFunction()];
     document.querySelector("#RandomText").textContent = RandText;
     document.querySelector('#answer').value = "";
     countAll++;
@@ -217,6 +240,11 @@ function changeColor() {
 }
 
 
+// document.addEventListener('click',event=>{
+
+//     let whatTarget= event.target;
+//     console.log(whatTarget)
+// })
 
 
 

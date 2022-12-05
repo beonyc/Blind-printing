@@ -7,11 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blind Printing</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/keyBoard1.png" >
+    <link rel="icon" href="images/keyBoard1.png">
 </head>
 
 <body>
     <header>
+        <div class="settings">
+            <lable>Язык
+            <select id="language">
+                <option value="JS" selected>JS</option>
+                <option value="Python">Python</option>
+            </select> </lable>
+            <lable>Время в секундах <input id="changeTime" type="number" value="60" step='10' min="0"></lable>
+            <button id="stopTimer" type="submit">stop</button>
+        </div>
         <div class="Timer_div">
             <h1 id="Timer" style="font-weight: normal;"> Press start</h1>
         </div>
@@ -20,13 +29,13 @@
         </div>
         <div class="ButAns">
             <button type="button" id="start">start</button>
-            <input type="text" id="answer" placeholder="enter text" value="" autofocus>
+            <input type="text" name="answerInput" id="answer" placeholder="enter text" value="" autofocus>
             <button type="button" id="send">send</button>
         </div>
     </header>
     <main class="result">
-        <div class="anwers" >
-            <div class="upRow"><span id="tryCount"></span><span id="count"></span></div>  
+        <div class="anwers">
+            <div class="upRow"><span id="tryCount"></span><span id="currentlanguage"></span><span id="count"></span></div>
             <p id="fullanswerList"> </p>
         </div>
     </main>
