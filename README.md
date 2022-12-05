@@ -1,8 +1,10 @@
 # blind printing
-[ru]Слепая печать. Тут можно практиковаться слепой печати на примерах, которые часто используются в js,css,html. 
+Слепая печать. Здесь можно практиковаться слепой печати на примерах, которые часто используются в js,css,html и python. 
 
-    Отправлять введеное сообщение можно при нажатии enter
+    Чтобы практиковаться на Python, нужно открыть файл script.js и в массив listPython добавить свои примеры.
+    Можно выбирать язык и задавать своё время.
+    Отправлять введеное сообщение можно при нажатии enter.
 
-[en]Blind printing. Here you can practice blind printing using examples that are often used in js, css, html.
+
 
 ![preview](https://github.com/beonyc/Blind-printing/blob/master/images/preview.jpg)
