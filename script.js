@@ -5,8 +5,10 @@ const AnswerLineFocus = document.getElementById('answer');
 let anwersCss = document.querySelector(".anwers");
 
 const listPython = [
-    'some python text1',
-    'some python text2'
+    'def myfucnc(): x=100',
+    'import json',
+   " mydoc = mycol.find().sort('name', -1)"
+   
 ]
 
 

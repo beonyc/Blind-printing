@@ -24,6 +24,7 @@ header{
     padding: 0 5px;
     font-size: 20px;
 }
+.settings select{width: 100px;}
 .settings option{ 
     font-size: 17px; 
 }
@@ -39,7 +40,12 @@ font-size: 25px;
     font-family: Source Sans Pro;
     background-color: #95B8D1;
 }
-
+hr{
+    height: 0;
+	border: none;
+	border-top: 1px solid #333;
+    margin: 4px 0;
+}
 
 
 
