@@ -123,18 +123,23 @@ body{
     
 }
 
+
 .anwers{
+    width: max-content;
+    max-width: 90vw;;
+
     border-radius: 20px;
     background-color: #B8E0D4;   
-    width: max-content;
-    height: max-content;
+   
     margin: 25px auto;
 }
 
 #fullanswerList{
     font-family: Source Sans Pro;
     text-align: center;
+    
 }
+
 
 .upRow{
     font-size:25px;
@@ -163,3 +168,5 @@ p.correct,p.wrong{font-size: 25px;}
         background-color: #FF6361;
         margin-right: 5px;   
     }
+
+ 
