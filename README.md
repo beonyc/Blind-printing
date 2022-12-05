@@ -7,4 +7,4 @@
 
 
 
-![preview](https://github.com/beonyc/Blind-printing/blob/master/images/preview.jpg)
+![preview](https://github.com/beonyc/Blind-printing/blob/master/images/newUi-newest.jpg)
