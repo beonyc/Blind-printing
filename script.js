@@ -72,6 +72,9 @@ function start() {
     if (language == 'JS') { selectedLanguage = listJS; currentlanguage = 'JS' }
     else { selectedLanguage = listPython; currentlanguage = 'Python'; }
 
+
+    
+
     document.getElementById('Timer').classList.remove('fotka');
     AnswerLineFocus.focus();
     let FirstRandText = selectedLanguage[getRandomFunction()];
@@ -117,6 +120,7 @@ function startTimer() {
     let secondlimit = document.getElementById('changeTime').value;
     document.getElementById("stopTimer").onclick = myStopFunction;
     let time = setInterval(() => { myTimer() }, 1000);
+    
     function myTimer() {
 
         if (secondlimit == 0) {

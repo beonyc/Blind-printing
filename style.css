@@ -86,9 +86,14 @@ hr{
 }
 
 .ButAns{ 
-    height: 4rem;
+    
     display: flex;
     justify-content: center;      
+}
+#answer{
+    width: 50rem;
+    font-size: 25px;
+    padding: 0 10px;
 }
 
 button#start,button#send{
@@ -107,7 +112,7 @@ button#start,button#send{
 #send{
     border-radius: 0 50px 50px 0;
 }
-
+апрапр
 #answer{
 height: 2.8rem;
 width:60rem;
